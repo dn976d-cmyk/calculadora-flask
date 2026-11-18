@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Calculadora Modularizada{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/" class="{{ 'ativa' if ativa == 'inicio' }}">Início</a> |
+    <a href="/soma" class="{{ 'ativa' if ativa == 'soma' }}">Soma</a> |
+    <a href="/subtracao" class="{{ 'ativa' if ativa == 'subtracao' }}">Subtração</a> |
+    <a href="/multiplicacao" class="{{ 'ativa' if ativa == 'multiplicacao' }}">Multiplicação</a> |
+    <a href="/divisao" class="{{ 'ativa' if ativa == 'divisao' }}">Divisão</a>
+  </nav>
+  <main>{% block conteudo %}{% endblock %}</main>
+</body>
+</html>

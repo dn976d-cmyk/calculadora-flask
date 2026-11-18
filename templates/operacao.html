@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }} - Calculadora{% endblock %}
+{% block conteudo %}
+  <h1>{{ titulo }}</h1>
+  <form method="post" id="form-calc">
+    <input type="text" inputmode="decimal" name="a" id="a" value="{{ a }}" placeholder="Primeiro valor" required>
+    <span class="simbolo">{{ simbolo }}</span>
+    <input type="text" inputmode="decimal" name="b" id="b" value="{{ b }}" placeholder="Segundo valor" required>
+    <button type="submit">Calcular</button>
+  </form>
+
+  <p id="aviso" class="erro" role="alert">{% if erro %}{{ erro }}{% endif %}</p>
+  {% if resultado %}
+    <p class="resultado">Resultado: <strong>{{ resultado }}</strong></p>
+  {% endif %}
+
+  <script>const OPERACAO = "{{ ativa }}";</script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
